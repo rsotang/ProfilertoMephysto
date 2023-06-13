@@ -2,7 +2,7 @@ def seleccionar_datos(nombre_archivo):
     with open(nombre_archivo, 'r') as f:
         lines = f.readlines()
         print(lines)
-    start_line = lines.index("Detector ID\tX Axis Position(cm)\tSet 1\n")
+    start_line = lines.index("Detector ID\tX Axis Position(cm)\tSet 1\n")+1
     end_line = lines.index("Detector ID\tY Axis Position(cm)\tSet 1\n")
 
     return [line.replace(',', '.') for line in lines[start_line:end_line]]
@@ -37,4 +37,4 @@ def comparar_archivos(nombre_archivo1, nombre_archivo2):
 if __name__ == "__main__":
     datos = seleccionar_datos('SNC_profiler.txt')
     insertar_datos(datos, 'prueba.txt')
-    comparar_archivos('prueba.txt','plantilla_mephysto.txt')
+   # comparar_archivos('prueba.txt','plantilla_mephysto.txt')
